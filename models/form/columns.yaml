@@ -1,0 +1,12 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: gromit.forms::lang.models.form.columns.name.label
+        searchable: true
+    is_active:
+        label: gromit.forms::lang.models.form.columns.is_active.label
+        type: partial
+        path: $/gromit/forms/partials/_active_column.htm

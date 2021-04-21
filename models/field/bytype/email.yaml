@@ -1,0 +1,11 @@
+options[send_notify]:
+    label: gromit.forms::lang.models.field.fields_by_type.email.send_notify.label
+    type: checkbox
+options[mail_template]:
+    label: gromit.forms::lang.models.field.fields_by_type.email.mail_template.label
+    type: dropdown
+    options: getMailTemplateOptions
+    trigger:
+        field: options[send_notify]
+        action: show
+        condition: checked

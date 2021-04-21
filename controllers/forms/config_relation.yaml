@@ -1,0 +1,12 @@
+fields:
+    label: gromit.forms::lang.controllers.forms.relation_fields_label
+    view:
+        list: $/gromit/forms/models/field/columns.yaml
+        toolbarPartial: partials/form/fields_toolbar
+        defaultSort:
+            column: sort_order
+            direction: asc
+    manage:
+        list: $/gromit/forms/models/field/columns.yaml
+        form: $/gromit/forms/models/field/fields.yaml
+        title: gromit.forms::lang.controllers.forms.relation_fields_manage_title

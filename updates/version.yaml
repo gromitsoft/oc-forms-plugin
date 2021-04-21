@@ -1,0 +1,11 @@
+1.0.1:
+    - First version of Forms
+    - create_forms_table.php
+    - create_fields_table.php
+    - create_submissions_table.php
+
+1.0.2:
+    - Events, buttons config
+    - add_buttons_config_to_forms.php
+
+1.0.3: Translations fix

@@ -1,0 +1,19 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: gromit.forms::lang.controllers.submissions.record_name
+
+# Model Form Field configuration
+form: $/gromit/forms/models/submission/fields.yaml
+
+# Model Class name
+modelClass: GromIT\Forms\Models\Submission
+
+# Default redirect location
+defaultRedirect: gromit/forms/submissions
+
+# Preview page
+preview:
+    title: gromit.forms::lang.controllers.submissions.preview_page_title

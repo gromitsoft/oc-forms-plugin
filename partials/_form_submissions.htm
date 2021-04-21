@@ -1,0 +1,19 @@
+<?php
+
+use Backend\Facades\Backend;
+use Backend\Facades\BackendAuth;
+
+/**
+ * @var \GromIT\Forms\Models\Form $record
+ */
+
+/** @noinspection PhpUndefinedMethodInspection */
+/** @var \Backend\Models\User $user */
+$user = BackendAuth::getUser();
+?>
+<?php if ($user->hasAccess('gromit.forms.show_submissions')): ?>
+    <a href="<?= Backend::url('gromit/forms/submissions/index', $record->id) ?>"
+       class="btn btn-sm btn-secondary">
+        <i class="icon-envelope"></i>
+    </a>
+<?php endif ?>

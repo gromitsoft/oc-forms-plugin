@@ -1,0 +1,30 @@
+<?php
+
+use October\Rain\Support\Facades\Form;
+
+/**
+ * @var \GromIT\Forms\Controllers\Submissions $this
+ * @var \Backend\Widgets\Form                 $form
+ */
+?>
+<?= Form::open(['url' => $this->actionUrl('export'), 'method' => 'post']) ?>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="popup">×</button>
+    <h4 class="modal-title">
+        <?= __('gromit.forms::lang.controllers.submissions.export.popup_title') ?>
+    </h4>
+</div>
+<div class="modal-body">
+    <?= $form->render() ?>
+</div>
+<div class="modal-footer">
+    <div class="loading-indicator-container">
+        <button type="submit" class="btn btn-primary oc-icon-download">
+            <?= __('gromit.forms::lang.controllers.submissions.export.popup_btn_text') ?>
+        </button>
+        <button type="button" class="btn btn-default" data-dismiss="popup">
+            <?= __('gromit.forms::lang.messages.close') ?>
+        </button>
+    </div>
+</div>
+<?= Form::close() ?>

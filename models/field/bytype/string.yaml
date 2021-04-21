@@ -1,0 +1,2 @@
+default:
+    label: gromit.forms::lang.models.field.fields_by_type.string.default.label

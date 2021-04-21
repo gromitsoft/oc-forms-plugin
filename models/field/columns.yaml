@@ -1,0 +1,21 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    label:
+        label: gromit.forms::lang.models.field.columns.label
+        sortable: false
+    type:
+        label: gromit.forms::lang.models.field.columns.type
+        type: partial
+        path: $/gromit/forms/controllers/forms/partials/form/_field_type_column.htm
+        sortable: false
+    is_required:
+        label: gromit.forms::lang.models.field.columns.is_required
+        type: partial
+        path: $/gromit/forms/partials/_active_column.htm
+    sort_order:
+        label: gromit.forms::lang.models.field.columns.sort_order
+        invisible: true
+        sortable: true

@@ -1,0 +1,17 @@
+<div class="gf-field-wrapper gf-field-checkbox gf-field-{{ field.key }} {{ field.wrapper_class }} {{ field.is_required ? 'required' }}">
+    <label>
+        <input type="checkbox"
+               name="{{ field.key }}"
+               class="{{ field.field_class }}"
+               {{ field.default ? 'checked="checked"' }}
+               >
+        {{ field.label | raw }}
+    </label>
+    {% if field.comment %}
+        <div class="gf-field-comment">
+            {{ field.comment }}
+        </div>
+    {% endif %}
+    <div class="gf-field-validation-message"
+         data-validate-for="{{ field.key }}"></div>
+</div>

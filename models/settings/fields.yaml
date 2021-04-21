@@ -1,0 +1,54 @@
+tabs:
+    fields:
+
+        # Уведомления
+
+        _notify:
+            label: gromit.forms::lang.models.settings.fields._notify.label
+            comment: gromit.forms::lang.models.settings.fields._notify.comment
+            type: section
+            tab: gromit.forms::lang.models.settings.fields.tab_notify
+
+        mail_template:
+            label: gromit.forms::lang.models.settings.fields.mail_template.label
+            comment: gromit.forms::lang.models.settings.fields.mail_template.comment
+            type: dropdown
+            tab: gromit.forms::lang.models.settings.fields.tab_notify
+
+        emails:
+            label: gromit.forms::lang.models.settings.fields.emails.label
+            commentAbove: gromit.forms::lang.models.settings.fields.emails.commentAbove
+            type: repeater
+            prompt: gromit.forms::lang.models.settings.fields.emails.prompt
+            tab: gromit.forms::lang.models.settings.fields.tab_notify
+            form:
+                fields:
+                    email:
+                        label: gromit.forms::lang.models.settings.fields.emails.email_label
+
+        use_queue:
+            label: gromit.forms::lang.models.settings.fields.use_queue.label
+            type: checkbox
+            commentHtml: true
+            comment: # set in Settings::filterFields
+            tab: gromit.forms::lang.models.settings.fields.tab_notify
+
+        # reCAPTCHA
+
+        _recaptcha:
+            label: gromit.forms::lang.models.settings.fields._recaptcha.label
+            comment: gromit.forms::lang.models.settings.fields._recaptcha.comment
+            type: section
+            tab: gromit.forms::lang.models.settings.fields.tab_recaptcha
+
+        recaptcha_sitekey:
+            label: gromit.forms::lang.models.settings.fields.recaptcha_sitekey.label
+            comment: # set in Settings::filterFields
+            commentHtml: true
+            tab: gromit.forms::lang.models.settings.fields.tab_recaptcha
+
+        recaptcha_secret:
+            label: gromit.forms::lang.models.settings.fields.recaptcha_secret.label
+            comment: # set in Settings::filterFields
+            commentHtml: true
+            tab: gromit.forms::lang.models.settings.fields.tab_recaptcha

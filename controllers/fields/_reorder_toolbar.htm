@@ -1,0 +1,16 @@
+<?php
+
+use Backend\Facades\Backend;
+
+/**
+ * @var \GromIT\Forms\Controllers\Fields $this
+ * @var \GromIT\Forms\Models\Form        $form
+ */
+?>
+<div data-control="toolbar">
+    <a
+        href="<?= Backend::url('gromit/forms/forms/update', $form->id) ?>"
+        class="btn btn-secondary oc-icon-arrow-left">
+        <?= __('gromit.forms::lang.controllers.fields.back_to_form') ?>
+    </a>
+</div>

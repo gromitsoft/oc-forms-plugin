@@ -1,0 +1,11 @@
+options[mimes]:
+    label: gromit.forms::lang.models.field.fields_by_type.upload.mimes.label
+    comment: gromit.forms::lang.models.field.fields_by_type.upload.mimes.comment
+    span: left
+options[max]:
+    label: gromit.forms::lang.models.field.fields_by_type.upload.max.label
+    comment: gromit.forms::lang.models.field.fields_by_type.upload.max.comment
+    span: right
+options[multiple]:
+    label: gromit.forms::lang.models.field.fields_by_type.upload.multiple.label
+    type: checkbox

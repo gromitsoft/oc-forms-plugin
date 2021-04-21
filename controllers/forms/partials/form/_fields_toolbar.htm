@@ -1,0 +1,59 @@
+<?php
+
+use Backend\Facades\Backend;
+use GromIT\Forms\Models\Field;
+
+/**
+ * @var \GromIT\Forms\Models\Form $formModel
+ */
+
+$hasRecaptchaField = $formModel->hasRecaptchaField();
+?>
+<div data-control="toolbar" data-disposable>
+    <div class="dropdown dropdown-fixed ">
+        <a href="#" data-toggle="dropdown" class="btn btn-sm btn-default oc-icon-plus">
+            <?= __('gromit.forms::lang.controllers.forms.btn_add_field') ?>
+        </a>
+
+        <ul class="dropdown-menu"
+            role="menu"
+            data-dropdown-title="<?= __('gromit.forms::lang.controllers.forms.btn_add_field') ?>">
+            <?php foreach (Field::getTypesList() as $type): ?>
+                <?php if (!($type === Field::TYPE_RECAPTCHA && $hasRecaptchaField)): ?>
+                    <li role="presentation">
+                        <a href="#"
+                           role="menuitem"
+                           tabindex="-1"
+                           data-control="popup"
+                           data-size="huge"
+                           data-handler="onRelationButtonCreate"
+                           data-request-data="field_type: '<?= $type ?>'"
+                           class="<?= Field::getTypeIcon($type, true) ?>">
+                            <?= Field::getFieldTypeName($type) ?>
+                        </a>
+                    </li>
+                <?php endif ?>
+            <?php endforeach ?>
+        </ul>
+    </div>
+
+    <button class="btn btn-sm btn-danger oc-icon-trash-o control-disabled"
+            onclick="$(this).data('request-data', {
+                checked: $('#Forms-update-RelationController-fields-view .control-list').listWidget('getChecked')
+            })"
+            disabled
+            data-request="onRelationButtonDelete"
+            data-request-confirm="<?= __('gromit.forms::lang.controllers.forms.btn_delete_field_confirm') ?>"
+            data-request-success="$.oc.relationBehavior.changed('fields', 'deleted')"
+            data-trigger-action="enable"
+            data-trigger="#Forms-update-RelationController-fields-view .control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-stripe-load-indicator>
+        <?= __('gromit.forms::lang.controllers.forms.btn_delete_field') ?>
+    </button>
+
+    <a href="<?= Backend::url('gromit/forms/fields/reorder', $formModel->id) ?>"
+       class="btn btn-sm btn-secondary oc-icon-sort-alpha-asc">
+        <?= __('gromit.forms::lang.controllers.forms.btn_reorder_fields') ?>
+    </a>
+</div>

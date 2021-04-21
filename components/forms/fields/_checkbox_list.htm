@@ -1,0 +1,19 @@
+<div class="gf-field-wrapper gf-field-checkbox-list gf-field-{{ field.key }} {{ field.wrapper_class }} {{ field.is_required ? 'required' }}">
+    <div>{{ field.label | raw }}</div>
+    {% for key, value in field.getOptions %}
+    <label>
+        <input type="checkbox"
+               name="{{ field.key }}[]"
+               class="{{ field.field_class }}"
+               value="{{ key }}">
+        {{ value }}
+    </label> <br>
+    {% endfor %}
+    {% if field.comment %}
+    <div class="gf-field-comment">
+        {{ field.comment }}
+    </div>
+    {% endif %}
+    <div class="gf-field-validation-message"
+         data-validate-for="{{ field.key }}"></div>
+</div>

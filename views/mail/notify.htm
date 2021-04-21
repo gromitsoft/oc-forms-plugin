@@ -1,0 +1,16 @@
+subject = "For submitted"
+==
+Form "{{ title }}" has been submitted.
+
+Submission date: {{ date }}
+
+{% for k, v in data %}
+    {{ k }}: {{ v }}
+
+{% endfor %}
+
+{% if hasFiles %}
+    There is uploaded files
+{% endif %}
+
+For view submission [follow this link]({{ url }}).

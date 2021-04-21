@@ -1,0 +1,24 @@
+<?php
+
+use Backend\Facades\Backend;
+use GromIT\Forms\Models\Field;
+
+/**
+ * @var \GromIT\Forms\Models\Field $formModel
+ */
+?>
+<div class="callout fade in callout-info no-subheader">
+    <div class="header">
+        <i class="<?= $formModel->getIcon() ?>"></i>
+        <h3><?= $formModel->getTypeName() ?></h3>
+        <?php if ($formModel->type === Field::TYPE_RECAPTCHA): ?>
+            <p>
+                <?= __('gromit.forms::lang.controllers.fields.recaptcha_comment_1') ?>
+                <a target="_blank"
+                   href="<?= Backend::url('system/settings/update/gromit/forms/settings') ?>#primarytab-recaptcha">
+                    <?= __('gromit.forms::lang.controllers.fields.recaptcha_comment_2') ?>
+                </a>
+            </p>
+        <?php endif ?>
+    </div>
+</div>

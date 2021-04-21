@@ -1,0 +1,62 @@
+<?php
+
+use Backend\Widgets\Form as FormWidget;
+use October\Rain\Support\Facades\Form;
+
+/**
+ * @var FormWidget $form
+ * @var string     $action
+ * @var string     $title
+ * @var string     $btnText
+ * @var string     $cancelBtnText
+ * @var string     $btnIcon
+ * @var string     $cancelBtnIcon
+ * @var string     $above
+ * @var string     $below
+ * @var string     $modalId
+ * @var bool       $loadIndicator
+ * @var string     $confirm
+ */
+
+$btnText       = $btnText ?? __('gromit.forms::lang.messages.ok');
+$cancelBtnText = $cancelBtnText ?? __('gromit.forms::lang.messages.cancel');
+$btnIcon       = $btnIcon ?? '';
+$cancelBtnIcon = $cancelBtnIcon ?? '';
+$above         = $above ?? '';
+$below         = $below ?? '';
+$modalId       = $modalId ?? null;
+$loadIndicator = $loadIndicator ?? false;
+$confirm       = $confirm ?? null;
+?>
+<?php if ($modalId): ?>
+    <div id="<?= $modalId ?>">
+<?php endif ?>
+<?= Form::open() ?>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">×</button>
+        <h4 class="modal-title"><?= $title ?? '' ?></h4>
+    </div>
+    <div class="modal-body">
+        <?= $above ?>
+        <?= $form->render() ?>
+        <?= $below ?>
+    </div>
+    <div class="modal-footer">
+        <div class="loading-indicator-container">
+            <button data-load-indicator="&nbsp;"
+                    data-request="<?= $action ?>"
+                    data-request-validate
+                <?= $loadIndicator ? 'data-popup-load-indicator="1"' : '' ?>
+                <?= empty($confirm) ? '' : 'data-request-confirm="' . $confirm . '"' ?>
+                    type="submit" class="btn btn-primary <?= $btnIcon ?>">
+                <?= $btnText ?>
+            </button>
+            <button type="button" class="btn btn-default <?= $cancelBtnIcon ?>" data-dismiss="popup">
+                <?= $cancelBtnText ?>
+            </button>
+        </div>
+    </div>
+<?= Form::close() ?>
+<?php if ($modalId): ?>
+    </div>
+<?php endif ?>

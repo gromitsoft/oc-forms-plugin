@@ -1,0 +1,34 @@
+{% set form = __SELF__.getForm %}
+{% if form %}
+    <div id="{{ __SELF__.alias ~ form.key }}" class="gf-form-wrapper {{ form.wrapper_class }}">
+        <form data-request="{{ __SELF__ }}::onSubmit"
+              data-request-update="'{{ __SELF__ }}::_success': '#{{ __SELF__.alias ~ form.key }}'"
+              data-request-validate
+              data-request-files
+              data-request-flash
+              class="gf-form {{ form.form_class }}">
+            <input type="hidden" name="form_key" value="{{ form.key }}">
+            <div class="gf-form-title">
+                {{ form.name }}
+            </div>
+            {% if form.description %}
+                <div class="gf-form-description">
+                    {{ form.description | raw }}
+                </div>
+            {% endif %}
+            <div class="gf-form-fields-wrapper">
+                {% for field in form.fields %}
+                    {% partial __SELF__ ~ '::fields/_' ~ field.type field=field %}
+                {% endfor %}
+                <button data-attach-loading type="submit" class="gf-submit-btn {{ form.getSubmitBtnClass }}">
+                    {{ form.getSubmitBtnLabel }}
+                </button>
+                {% if form.isClearBtnVisible %}
+                    <button type="reset" class="gf-reset-btn {{ form.getClearBtnClass }}">
+                        {{ form.getClearBtnLabel }}
+                    </button>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+{% endif %}

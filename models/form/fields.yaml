@@ -1,0 +1,149 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    is_active:
+        label: gromit.forms::lang.models.form.fields.is_active.label
+        comment: gromit.forms::lang.models.form.fields.is_active.comment
+        type: switch
+        default: true
+    name:
+        label: gromit.forms::lang.models.form.fields.name.label
+        comment: gromit.forms::lang.models.form.fields.name.comment
+        span: left
+    key:
+        label: gromit.forms::lang.models.form.fields.key.label
+        comment: gromit.forms::lang.models.form.fields.key.comment
+        span: right
+        preset: name
+
+tabs:
+    icons:
+        'gromit.forms::lang.models.form.fields.tab_fields': icon-list
+        'gromit.forms::lang.models.form.fields.tab_description': icon-i-cursor
+        'gromit.forms::lang.models.form.fields.tab_extra': icon-magic
+        'gromit.forms::lang.models.form.fields.tab_notifications': icon-envelope-o
+
+    fields:
+
+        # Fields tab
+
+        _fields@create:
+            type: partial
+            path: partials/form/fields_create_hint
+            tab: gromit.forms::lang.models.form.fields.tab_fields
+        _fields@update:
+            label: gromit.forms::lang.models.form.fields._fields.label
+            comment: gromit.forms::lang.models.form.fields._fields.comment
+            type: section
+            tab: gromit.forms::lang.models.form.fields.tab_fields
+        fields@update:
+            tab: gromit.forms::lang.models.form.fields.tab_fields
+            type: partial
+            path: $/gromit/forms/controllers/forms/partials/form/_fields.htm
+
+        # Description tab
+
+        _description:
+            label: gromit.forms::lang.models.form.fields._description.label
+            comment: gromit.forms::lang.models.form.fields._description.comment
+            type: section
+            tab: gromit.forms::lang.models.form.fields.tab_description
+        description:
+            type: richeditor
+            cssClass: p-b-lg
+            tab: gromit.forms::lang.models.form.fields.tab_description
+
+        _success:
+            label: gromit.forms::lang.models.form.fields._success.label
+            comment: gromit.forms::lang.models.form.fields._success.comment
+            type: section
+            tab: gromit.forms::lang.models.form.fields.tab_description
+        success_title:
+            label: gromit.forms::lang.models.form.fields.success_title.label
+            tab: gromit.forms::lang.models.form.fields.tab_description
+        success_msg:
+            label: gromit.forms::lang.models.form.fields.success_msg.label
+            type: richeditor
+            tab: gromit.forms::lang.models.form.fields.tab_description
+
+        # Extra tab
+
+        _config:
+            label: gromit.forms::lang.models.form.fields._config.label
+            comment: gromit.forms::lang.models.form.fields._config.comment
+            type: section
+            tab: gromit.forms::lang.models.form.fields.tab_extra
+        wrapper_class:
+            label: gromit.forms::lang.models.form.fields.wrapper_class.label
+            comment: gromit.forms::lang.models.form.fields.wrapper_class.comment
+            span: left
+            tab: gromit.forms::lang.models.form.fields.tab_extra
+        form_class:
+            label: gromit.forms::lang.models.form.fields.form_class.label
+            comment: gromit.forms::lang.models.form.fields.form_class.comment
+            span: right
+            tab: gromit.forms::lang.models.form.fields.tab_extra
+        buttons_config[submit_label]:
+            label: gromit.forms::lang.models.form.fields.submit_label.label
+            comment: gromit.forms::lang.models.form.fields.submit_label.comment
+            span: left
+            tab: gromit.forms::lang.models.form.fields.tab_extra
+        buttons_config[submit_class]:
+            label: gromit.forms::lang.models.form.fields.submit_class.label
+            comment: gromit.forms::lang.models.form.fields.submit_class.comment
+            span: right
+            tab: gromit.forms::lang.models.form.fields.tab_extra
+        buttons_config[clear_visible]:
+            label: gromit.forms::lang.models.form.fields.clear_visible.label
+            comment: gromit.forms::lang.models.form.fields.clear_visible.comment
+            type: switch
+            tab: gromit.forms::lang.models.form.fields.tab_extra
+        buttons_config[clear_label]:
+            label: gromit.forms::lang.models.form.fields.clear_label.label
+            comment: gromit.forms::lang.models.form.fields.clear_label.comment
+            span: left
+            tab: gromit.forms::lang.models.form.fields.tab_extra
+            trigger:
+                field: buttons_config[clear_visible]
+                action: show
+                condition: checked
+        buttons_config[clear_class]:
+            label: gromit.forms::lang.models.form.fields.clear_class.label
+            comment: gromit.forms::lang.models.form.fields.clear_class.comment
+            span: right
+            tab: gromit.forms::lang.models.form.fields.tab_extra
+            trigger:
+                field: buttons_config[clear_visible]
+                action: show
+                condition: checked
+
+        # Notifications tab
+
+        _notifications:
+            label: gromit.forms::lang.models.form.fields._notifications.label
+            comment: gromit.forms::lang.models.form.fields._notifications.comment
+            type: section
+            tab: gromit.forms::lang.models.form.fields.tab_notifications
+        mail_template:
+            label: gromit.forms::lang.models.form.fields.mail_template.label
+            comment: # set in Form::filterFields
+            commentHtml: true
+            type: dropdown
+            emptyOption: gromit.forms::lang.models.form.fields.mail_template.emptyOption
+            tab: gromit.forms::lang.models.form.fields.tab_notifications
+        _extra_emails@update:
+            label: gromit.forms::lang.models.form.fields._extra_emails.label
+            comment: gromit.forms::lang.models.form.fields._extra_emails.comment
+            commentHtml: true
+            type: section
+            tab: gromit.forms::lang.models.form.fields.tab_notifications
+        extra_emails@update:
+            tab: gromit.forms::lang.models.form.fields.tab_notifications
+            type: repeater
+            prompt: gromit.forms::lang.models.form.fields.extra_emails.prompt
+            form:
+                fields:
+                    email:
+                        label: gromit.forms::lang.models.form.fields.extra_emails.email_label

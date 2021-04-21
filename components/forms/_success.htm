@@ -1,0 +1,14 @@
+{% if form.success_title or form.success_msg %}
+    {% if form.success_title %}
+        <div class="gf-success-title">
+            {{ form.success_title | raw }}
+        </div>
+    {% endif %}
+    {% if form.success_msg %}
+        <div class="gf-success-msg">
+            {{ form.success_msg | raw }}
+        </div>
+    {% endif %}
+{% else %}
+    <p>The form has been submitted!</p>
+{% endif %}

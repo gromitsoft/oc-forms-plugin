@@ -1,0 +1,21 @@
+<div class="gf-field-wrapper gf-field-select gf-field-{{ field.key }} {{ field.wrapper_class }} {{ field.is_required ? 'required' }}">
+    <label>
+        <span>{{ field.label | raw }}</span>
+        <select name="{{ field.key }}"
+                {{ field.is_required ? 'required="required"' }}
+                class="{{ field.field_class }}">
+            {% for key, value in field.getOptions %}
+            <option value="{{ key }}" {{ value == field.default ? 'selected="selected"' }}>
+                {{ value }}
+            </option>
+            {% endfor %}
+        </select>
+    </label>
+    {% if field.comment %}
+    <div class="gf-field-comment">
+        {{ field.comment }}
+    </div>
+    {% endif %}
+    <div class="gf-field-validation-message"
+         data-validate-for="{{ field.key }}"></div>
+</div>

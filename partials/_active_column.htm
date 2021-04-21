@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var \Backend\Classes\ListColumn  $listColumn
+ * @var \October\Rain\Database\Model $record
+ */
+
+$value = $record->{$listColumn->columnName}
+?>
+<?php if ($value): ?>
+    <i class="icon-check text-success"></i>
+<?php else: ?>
+    <i class="icon-remove text-danger"></i>
+<?php endif ?>

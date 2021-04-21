@@ -1,0 +1,40 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    type:
+        cssClass: hidden
+    _type_hint:
+        type: partial
+        path: $/gromit/forms/controllers/fields/_field_type.htm
+    label:
+        label: gromit.forms::lang.models.field.fields.label.label
+        comment: gromit.forms::lang.models.field.fields.label.comment
+        span: left
+    key:
+        label: gromit.forms::lang.models.field.fields.key.label
+        comment: gromit.forms::lang.models.field.fields.key.comment
+        span: right
+        preset: label
+    comment:
+        label: gromit.forms::lang.models.field.fields.comment.label
+        comment: gromit.forms::lang.models.field.fields.comment.comment
+    is_required:
+        label: gromit.forms::lang.models.field.fields.is_required.label
+        type: checkbox
+    required_message:
+        label: gromit.forms::lang.models.field.fields.required_message.label
+        comment: gromit.forms::lang.models.field.fields.required_message.comment
+        trigger:
+            field: is_required
+            action: show
+            condition: checked
+    wrapper_class:
+        label: gromit.forms::lang.models.field.fields.wrapper_class.label
+        comment: gromit.forms::lang.models.field.fields.wrapper_class.comment
+        span: left
+    field_class:
+        label: gromit.forms::lang.models.field.fields.field_class.label
+        comment: gromit.forms::lang.models.field.fields.field_class.comment
+        span: right

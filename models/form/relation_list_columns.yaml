@@ -1,0 +1,21 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: gromit.forms::lang.models.form.columns.name.label
+        searchable: true
+        sortable: false
+    is_active:
+        label: ''
+        type: partial
+        path: $/gromit/forms/partials/_active_column.htm
+        sortable: false
+    _submissions:
+        label: ''
+        type: partial
+        path: $/gromit/forms/partials/_form_submissions.htm
+        cssClass: column-button
+        sortable: false
+        clickable: false

@@ -1,0 +1,17 @@
+options:
+    label: gromit.forms::lang.models.field.fields_by_type.select.options.label
+    type: repeater
+    prompt: gromit.forms::lang.models.field.fields_by_type.select.options.prompt
+    form:
+        fields:
+            option:
+                label: gromit.forms::lang.models.field.fields_by_type.select.options.option_label
+                span: left
+            key:
+                label: gromit.forms::lang.models.field.fields_by_type.select.options.option_key
+                span: right
+                preset: option
+
+default:
+    label: gromit.forms::lang.models.field.fields_by_type.select.default.label
+    type: text

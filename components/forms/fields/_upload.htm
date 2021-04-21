@@ -1,0 +1,22 @@
+<div class="gf-field-wrapper gf-field-upload gf-field-{{ field.key }} {{ field.wrapper_class }} {{ field.is_required ? 'required' }}">
+    <label>
+        <span>{{ field.label | raw }}</span>
+        <input type="file"
+               class="{{ field.field_class }}"
+               {% if (field.uploadHasMimes) %}
+               accept="{{ field.uploadAcceptHtmlAttribute }}"
+               {% endif %}
+               {% if (field.uploadIsMultiple) %}
+               multiple
+               {% endif %}
+               name="{{ field.key }}{{ field.uploadIsMultiple ? '[]' }}"
+               {{ field.is_required ? 'required' }}>
+    </label>
+    {% if field.comment %}
+    <div class="gf-field-comment">
+        {{ field.comment }}
+    </div>
+    {% endif %}
+    <div class="gf-field-validation-message"
+         data-validate-for="{{ field.key }}"></div>
+</div>

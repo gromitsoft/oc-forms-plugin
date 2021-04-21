@@ -1,0 +1,17 @@
+# ===================================
+#  Reorder Behavior Config
+# ===================================
+
+# Reorder Title
+title: gromit.forms::lang.controllers.fields.reorder.title
+
+# Attribute name
+nameFrom: label
+
+# Model Class name
+modelClass: GromIT\Forms\Models\Field
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: reorder_toolbar

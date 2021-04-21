@@ -1,0 +1,6 @@
+scopes:
+    form:
+        label: gromit.forms::lang.controllers.submissions.filter_form
+        modelClass: GromIT\Forms\Models\Form
+        conditions: form_id in (:filtered)
+        nameFrom: name

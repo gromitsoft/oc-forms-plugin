@@ -1,0 +1,17 @@
+options[theme]:
+    label: gromit.forms::lang.models.field.fields_by_type.recaptcha.theme.label
+    type: dropdown
+    options:
+        light: gromit.forms::lang.models.field.fields_by_type.recaptcha.theme.light
+        dark: gromit.forms::lang.models.field.fields_by_type.recaptcha.theme.dark
+    default: light
+    span: left
+
+options[size]:
+    label: gromit.forms::lang.models.field.fields_by_type.recaptcha.size.label
+    type: dropdown
+    options:
+        normal: gromit.forms::lang.models.field.fields_by_type.recaptcha.size.normal
+        compact: gromit.forms::lang.models.field.fields_by_type.recaptcha.size.compact
+    default: normal
+    span: right

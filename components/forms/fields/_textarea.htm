@@ -1,0 +1,13 @@
+<div class="gf-field-wrapper gf-field-textarea gf-field-{{ field.key }} {{ field.wrapper_class }} {{ field.is_required ? 'required' }}">
+    <label>
+        <span>{{ field.label | raw }}</span>
+        <textarea name="{{ field.key }}" {{ field.is_required ? 'required' }} class="{{ field.field_class }}">{{ field.default }}</textarea>
+    </label>
+    {% if field.comment %}
+    <div class="gf-field-comment">
+        {{ field.comment }}
+    </div>
+    {% endif %}
+    <div class="gf-field-validation-message"
+         data-validate-for="{{ field.key }}"></div>
+</div>

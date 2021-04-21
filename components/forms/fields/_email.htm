@@ -1,0 +1,17 @@
+<div class="gf-field-wrapper gf-field-email gf-field-{{ field.key }} {{ field.wrapper_class }} {{ field.is_required ? 'required' }}">
+    <label>
+        <span>{{ field.label | raw }}</span>
+        <input type="email"
+               name="{{ field.key }}"
+               value="{{ field.default }}"
+               class="{{ field.field_class }}"
+               {{ field.is_required ? 'required' }}>
+    </label>
+    {% if field.comment %}
+    <div class="gf-field-comment">
+        {{ field.comment }}
+    </div>
+    {% endif %}
+    <div class="gf-field-validation-message"
+         data-validate-for="{{ field.key }}"></div>
+</div>

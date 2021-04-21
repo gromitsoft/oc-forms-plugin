@@ -1,0 +1,27 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: gromit.forms::lang.controllers.forms.record_name
+
+# Model Form Field configuration
+form: $/gromit/forms/models/form/fields.yaml
+
+# Model Class name
+modelClass: GromIT\Forms\Models\Form
+
+# Default redirect location
+defaultRedirect: gromit/forms/forms
+
+# Create page
+create:
+    title: gromit.forms::lang.controllers.forms.create_page_title
+    redirect: gromit/forms/forms/update/:id
+    redirectClose: gromit/forms/forms
+
+# Update page
+update:
+    title: gromit.forms::lang.controllers.forms.update_page_title
+    redirect: gromit/forms/forms
+    redirectClose: gromit/forms/forms

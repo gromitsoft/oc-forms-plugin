@@ -1,0 +1,100 @@
+<?php
+
+use GromIT\Forms\Classes\Permissions;
+use October\Rain\Support\Facades\Block;
+
+/**
+ * @var \GromIT\Forms\Controllers\Submissions|\Backend\Behaviors\FormController $this
+ * @var \GromIT\Forms\Models\Submission                                         $formModel
+ */
+?>
+<?php Block::put('breadcrumb') ?>
+<ul>
+    <li>
+        <a href="<?= $this->actionUrl('/') ?>">
+            <?= __('gromit.forms::lang.controllers.submissions.breadcrumbs_root') ?>
+        </a>
+    </li>
+    <li><?= e($this->pageTitle) ?></li>
+</ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="layout">
+        <div class="layout-row">
+            <div class="btn-toolbar m-b">
+                <a href="<?= $this->actionUrl('/') ?>"
+                   class="btn btn-secondary oc-icon-arrow-left">
+                    <?= __('gromit.forms::lang.controllers.submissions.btn_back') ?>
+                </a>
+            </div>
+            <div class="form-preview">
+                <h3><?= __('gromit.forms::lang.controllers.submissions.record_name') ?> "<?= $formModel->form->name ?>"
+                    <i class="icon-calendar"></i> <?= $formModel->created_at->format('d.m.Y H:i') ?></h3>
+                <table>
+                    <?php foreach ($formModel->getSubmissionData() as $fieldName => $fieldValue): ?>
+                        <tr>
+                            <td style="padding: 5px 2px;">
+                                <small class="text-muted"><?= $fieldName ?>: </small>
+                            </td>
+                            <td style="padding: 5px 5px;">
+                                <?= $fieldValue ?>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                    <?php if ($formModel->form->hasUploadField()): ?>
+                        <?php if ($formModel->uploaded_files()->exists()): ?>
+                            <?php foreach ($formModel->uploaded_files->groupBy('description') as $description => $files): ?>
+                                <tr>
+                                    <td style="padding: 5px 2px;">
+                                        <small class="text-muted"><?= $description ?>: </small>
+                                    </td>
+                                    <td style="padding: 5px 5px;">
+                                        <?php
+                                        /** @var \System\Models\File $file */
+                                        foreach ($files as $file): ?>
+                                            <div>
+                                                <a target="_blank" href="<?= $file->getPath() ?>">
+                                                    <?= $file->getFilename() ?>
+                                                </a>
+                                            </div>
+                                        <?php endforeach ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        <?php else: ?>
+                            <tr>
+                                <td style="padding: 5px 2px;" colspan="2">
+                                    <?= __('gromit.forms::lang.controllers.submissions.files_not_uploaded') ?>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                    <?php endif ?>
+                </table>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <div class="loading-indicator-container">
+                <?php if ($this->user->hasAccess(Permissions::DELETE_SUBMISSIONS)): ?>
+                    <button type="button"
+                            class="oc-icon-trash-o btn-icon danger pull-right"
+                            data-request="onDelete"
+                            data-load-indicator="<?= __('gromit.forms::lang.controllers.submissions.btn_delete_load') ?>"
+                            data-request-confirm="<?= __('gromit.forms::lang.controllers.submissions.btn_delete_confirm') ?>">
+                    </button>
+                <?php endif ?>
+            </div>
+        </div>
+    </div>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p>
+        <a href="<?= $this->actionUrl('/') ?>" class="btn btn-default">
+            <?= __('gromit.forms::lang.controllers.submissions.return_tu_submissions_listf') ?>
+        </a>
+    </p>
+
+<?php endif ?>
