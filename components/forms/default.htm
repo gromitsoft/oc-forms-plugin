@@ -20,12 +20,12 @@
                 {% for field in form.fields %}
                     {% partial __SELF__ ~ '::fields/_' ~ field.type field=field %}
                 {% endfor %}
-                <button data-attach-loading type="submit" class="gf-submit-btn {{ form.getSubmitBtnClass }}">
-                    {{ form.getSubmitBtnLabel }}
+                <button data-attach-loading type="submit" class="gf-submit-btn {{ form.getSubmitBtnClass() }}">
+                    {{ form.getSubmitBtnLabel() }}
                 </button>
                 {% if form.isClearBtnVisible %}
-                    <button type="reset" class="gf-reset-btn {{ form.getClearBtnClass }}">
-                        {{ form.getClearBtnLabel }}
+                    <button type="reset" class="gf-reset-btn {{ form.getClearBtnClass() }}">
+                        {{ form.getClearBtnLabel() }}
                     </button>
                 {% endif %}
             </div>

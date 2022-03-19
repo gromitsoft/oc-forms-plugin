@@ -1,6 +1,6 @@
 <div class="gf-field-wrapper gf-field-radio gf-field-{{ field.key }} {{ field.wrapper_class }} {{ field.is_required ? 'required' }}">
     <div>{{ field.label | raw }}</div>
-    {% for key, value in field.getOptions %}
+    {% for key, value in field.getOptions() %}
     <label>
         <input type="radio"
                name="{{ field.key }}"
