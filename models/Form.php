@@ -85,7 +85,7 @@ class Form extends Model
     #endregion
 
     #region Events
-    public function filterFields(stdClass $fields, ?string $context = null): void
+    public function filterFields($fields, ?string $context = null): void
     {
         if ($context === 'update') {
             $url   = Backend::url('system/settings/update/gromit/forms/settings');
