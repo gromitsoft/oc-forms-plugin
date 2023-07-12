@@ -34,7 +34,7 @@ class Settings extends Model
         'emails.*.email' => 'required|email'
     ];
 
-    public function filterFields(stdClass $fields, ?string $context = null): void
+    public function filterFields($fields, ?string $context = null): void
     {
         if ($context === 'update') {
             $useQueueCommentText = __('gromit.forms::lang.models.settings.fields.use_queue.comment');
