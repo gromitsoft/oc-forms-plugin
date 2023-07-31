@@ -88,12 +88,14 @@ class Form extends Model
     public function filterFields($fields, ?string $context = null): void
     {
         if ($context === 'update') {
-            $url   = Backend::url('system/settings/update/gromit/forms/settings');
-            $label = __('gromit.forms::lang.models.form.fields.mail_template.comment_link_label');
+            if ($fields->mail_template) {
+                $url   = Backend::url('system/settings/update/gromit/forms/settings');
+                $label = __('gromit.forms::lang.models.form.fields.mail_template.comment_link_label');
 
-            $fields->mail_template->comment = __('gromit.forms::lang.models.form.fields.mail_template.comment', [
-                'link' => "<a href='$url' target='_blank'>$label</a>"
-            ]);
+                $fields->mail_template->comment = __('gromit.forms::lang.models.form.fields.mail_template.comment', [
+                    'link' => "<a href='$url' target='_blank'>$label</a>"
+                ]);
+            }
         }
     }
 
