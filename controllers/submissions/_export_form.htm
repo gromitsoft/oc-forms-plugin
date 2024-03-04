@@ -9,10 +9,10 @@ use October\Rain\Support\Facades\Form;
 ?>
 <?= Form::open(['url' => $this->actionUrl('export'), 'method' => 'post']) ?>
 <div class="modal-header">
-    <button type="button" class="close" data-dismiss="popup">×</button>
     <h4 class="modal-title">
         <?= __('gromit.forms::lang.controllers.submissions.export.popup_title') ?>
     </h4>
+    <button type="button" class="close" data-dismiss="popup">×</button>
 </div>
 <div class="modal-body">
     <?= $form->render() ?>

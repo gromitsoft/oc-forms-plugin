@@ -197,7 +197,7 @@ class Forms extends Controller
      * @param string                       $field
      * @param \October\Rain\Database\Model $model
      */
-    public function relationExtendManageWidget(FormWidget $widget, string $field, Model $model): void
+    public function relationExtendManageWidget($widget, string $field, Model $model): void
     {
         if ($model instanceof Form && $field === 'fields') {
             $widget->bindEvent('form.extendFieldsBefore', function () use ($widget) {
